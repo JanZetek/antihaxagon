@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Antihaxagon",
+  "version": "1.0",
+  "description": "Rozšíření, které samo napíše odpovědi z Haxagon",
+
+  "action": {
+    "default_title": "AntiHaxagon",
+    "default_popup": "index.html"
+  },
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "side_panel": {
+    "default_path": "settings.html"
+  },
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "browsingData",
+    "sidePanel"
+  ]
+}

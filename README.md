@@ -1,16 +1,29 @@
-# React + Vite
+# AntiHaxagon
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Projekt AntiHaxagon je určen na řešení vybíracích úkolů na vzdělávací platformě Haxagon. Úkoly se řeší za pomoci externě napojené AI, tedy si každý uživatel musí obsarat nějakého zprostředkovatele připojení (jako je například Ollama, LM Studio - doporučeno, či externě Open AI).
 
-Currently, two official plugins are available:
+## Zprovoznění v prohlížeči
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1. Zapnuté vývojářského režimu
 
-## React Compiler
+Pro zprovoznění v prohlížeči je nutné si stáhnout rozšíření určené pro prohlížeče založené na jádru Chromium (tedy např. Google Chrome, Microsoft Edge, Brave). Zatím rozšíření není v seznamu oficiálních rozšířeních. Pro jeho spuštění je nutmé mít zapnutý `Developer mode`. Zapnuté provedete v pravém horní okraji stránky `chrome://extensions`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Zapnutí developer modu v Chromium](images/chromium_developer_mode.png)
 
-## Expanding the Oxlint configuration
+### 2. Stažení
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Stáhněte si `.zip` soubor s aktuální verzí AntiHaxagonu.  
+[Stáhnout AntiHaxagon v1.0.0](https://github.com/JanZetek/antihaxagon/releases/download/v0.0.1/Antihaxagon.v0.0.1.zip)
+
+### 3. Nahrání do prohlížeče
+
+V prohlížeči nahrajete rozšíření jako zabalené.
+
+### 4. Připojení AI
+
+1. Otevřete rozšíření
+    ![Domovská obrazovka](images/home_screen.png)
+1. Klikněte na tlačítko `Nastavení`
+    ![Obrazovka nastavení](images/settings_screen.png)
+1. Vyplntě nastavení
+    ![Vyplněná obrazovka nastavení](images/fill_settings_screen.png)

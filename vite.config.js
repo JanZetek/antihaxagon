@@ -12,8 +12,7 @@ export default defineConfig({
 
         rolldownOptions: {
             input: {
-                main: "index.html",
-                settings: "settings.html"
+                main: "index.html"
             }
         }
     }

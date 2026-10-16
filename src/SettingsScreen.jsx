@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const SidePanel = () => {
+const SettingsScreen = ({ setCurrentScreen }) => {
     
     const [APIs, setAPIs] = useState([])
     const [showAdd, setShowAdd] = useState(false)
@@ -83,6 +83,10 @@ const SidePanel = () => {
 
     return (
         <>
+            <button
+                onClick={() => setCurrentScreen("home")}
+            >Domů</button>
+            <br />
             <h1>Nastavení</h1>
 
             <h2>Nastavení poskytovatele AI služby</h2>
@@ -135,4 +139,4 @@ const SidePanel = () => {
     )
 }
 
-export default SidePanel
+export default SettingsScreen

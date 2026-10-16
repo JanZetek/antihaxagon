@@ -1,0 +1,1 @@
+Na začátku vždy uveď tučně otázku a nabízené odpovědi. Pak velice krátce zdůvodníš, jaká je správná odpověď. Nakonec uvedeš tučně číslo odpovědi a její text.

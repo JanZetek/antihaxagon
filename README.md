@@ -13,7 +13,7 @@ Pro zprovoznění v prohlížeči je nutné si stáhnout rozšíření určené 
 ### 2. Stažení
 
 Stáhněte si `.zip` soubor s aktuální verzí AntiHaxagonu.  
-[Stáhnout AntiHaxagon v1.0.0](https://github.com/JanZetek/antihaxagon/releases/download/v0.0.1/Antihaxagon.v0.0.1.zip)
+[Stáhnout AntiHaxagon v0.0.2](https://github.com/JanZetek/antihaxagon/releases/download/v0.0.2/Antihaxagon.v0.0.2.zip)
 
 ### 3. Nahrání do prohlížeče
 

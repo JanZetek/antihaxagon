@@ -3,6 +3,7 @@ import { useState } from "react"
 import HomeScreen from "./HomeScreen"
 import SettingsScreen from "./SettingsScreen"
 import SolutionScreen from "./SolutionScreen"
+import NotesScreen from "./NotesScreen"
 
 const App = () => {
 
@@ -31,6 +32,15 @@ const App = () => {
     else if (currentScreen === "solution") {
         return (
             <SolutionScreen
+                setCurrentScreen={setCurrentScreen}
+                models={models}
+                selectedModel={selectedModel}
+            />
+        )
+    }
+    else if (currentScreen === "notes") {
+        return (
+            <NotesScreen
                 setCurrentScreen={setCurrentScreen}
                 models={models}
                 selectedModel={selectedModel}

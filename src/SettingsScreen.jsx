@@ -1,3 +1,5 @@
+import "./SettingsScreen.css"
+
 import { useState, useEffect } from "react"
 
 const SettingsScreen = ({ setCurrentScreen }) => {
@@ -6,7 +8,7 @@ const SettingsScreen = ({ setCurrentScreen }) => {
     const [showAdd, setShowAdd] = useState(false)
     const [typeAPI, setTypeAPI] = useState("Open AI")
     const [urlInput, setUrlInput] = useState("")
-    const [keyInput, setKeyInout] = useState("")
+    const [keyInput, setKeyInput] = useState("")
     
     const getAPIs = async () => {
         const data = await chrome.storage.local.get("API")
@@ -35,16 +37,28 @@ const SettingsScreen = ({ setCurrentScreen }) => {
             url = `${urlInput}/api/tags`
         }
 
-        headers["method"] = "GET"
-
         if (keyInput !== "") {
+            console.log(keyInput)
             headers["Authorization"] = `Bearer ${keyInput}`
         }
 
+        console.log("headers:", headers)
+
         try {
-            const response = await fetch(url, headers)
+            const response = await fetch(url, {
+                method: "GET",
+                headers
+            })
+
+            console.log(response)
+
+            if (!response.ok) {
+                alert("Špatné propojení se serverem!")
+            }
     
             const result = await response.json()
+
+            console.log(result)
 
             const storageData = await chrome.storage.local.get("API")
 
@@ -57,13 +71,12 @@ const SettingsScreen = ({ setCurrentScreen }) => {
             alert("Úspěšně vloženo")
 
             setUrlInput("")
-            setKeyInout("")
+            setKeyInput("")
             setShowAdd(false)
             getAPIs()
 
         } catch (e) {
-            alert("Zkontrolujte připojení k AI")
-            throw new Error(e)
+            alert(`Zkontrolujte připojení k AI ${e}`)
         }
     }
 
@@ -92,7 +105,7 @@ const SettingsScreen = ({ setCurrentScreen }) => {
             <h2>Nastavení poskytovatele AI služby</h2>
 
             <h3>Nastavené modely:</h3>
-            <ul>
+            <ul className="models">
                 {APIs.map((API, index) => (
                     <li>
                         <div>
@@ -108,15 +121,15 @@ const SettingsScreen = ({ setCurrentScreen }) => {
             <form 
                 style={{display: showAdd ? "block" : "none"}}
                 action={onAddModel}
+                className="add-model"
             >
-                <label>Vyberte typ API:</label>
+                <p><label>Vyberte typ API:</label>
                 <select
                     value={typeAPI}
                     onChange={e => setTypeAPI(e.target.value)}
                 >
                     <option value="Open AI">Open AI</option>
-                    <option value="Ollama">Ollama</option>
-                </select>
+                </select></p>
                 <input 
                     type="url" 
                     placeholder="URL adresa" 
@@ -124,14 +137,14 @@ const SettingsScreen = ({ setCurrentScreen }) => {
                     onChange={e => setUrlInput(e.target.value)}
                     required
                 />
-                <p>Poslední lomítko nepiš, uveď i protokol.</p>
+                <p className="note">Poslední lomítko nepiš, uveď i protokol.</p>
                 <input 
                     type="text" 
                     placeholder="API klíč"
                     value={keyInput}
                     onChange={e => setKeyInput(e.target.value)}
                 />
-                <p>Nepovinné</p>
+                <p className="note">Nepovinné</p>
                 <button type="submit">Potvrdit</button>
             </form>
             <button onClick={() => setShowAdd(!showAdd)}>Přidat</button>

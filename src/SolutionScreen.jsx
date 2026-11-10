@@ -1,3 +1,5 @@
+import "./SolutionScreen.css"
+
 import { useState, useEffect } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -118,7 +120,7 @@ const SolutionScreen = ({ setCurrentScreen, models, selectedModel }) => {
 
                     return answer
                 })
-            )               
+            )
 
             setSolution(answers)
             setIsLoading(false)
@@ -141,9 +143,11 @@ const SolutionScreen = ({ setCurrentScreen, models, selectedModel }) => {
                 <br />
                 <h1>Řešení</h1>
                 {solution.map(answer => (
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {answer}
-                    </ReactMarkdown>
+                    <div className="answer">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                            {answer}
+                        </ReactMarkdown>
+                    </div>
                 ))}
             </>
         )

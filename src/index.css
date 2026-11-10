@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(58, 0, 58);
+    color: whitesmoke;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px whitesmoke solid;
+    border-radius: 5px;
+    font-size: 17px;
+    color: whitesmoke;
+    margin: 7px;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+select {
+    background-color: rgba(0, 0, 0, 0);
+    color: whitesmoke;
+}
+
+option {
+    background-color: rgb(58, 0, 58);
+}
+
+p {
+    font-size: 14px;
+}
+
+input {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    color: whitesmoke;
+}
+
+input::placeholder {
+    color: rgb(166, 166, 166);
+}
+
+.note {
+    font-size: 12px;
+    color: rgb(166, 166, 166);
+}

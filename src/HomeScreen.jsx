@@ -1,3 +1,5 @@
+import "./HomeScreen.css"
+
 import { useEffect } from "react"
 
 const HomeScreen = ({ setCurrentScreen, models, setModels, selectedModel, setSelectedModel }) => {
@@ -22,13 +24,14 @@ const HomeScreen = ({ setCurrentScreen, models, setModels, selectedModel, setSel
                     let url = `${API.url}/models`
                     let headers = {}
 
-                    headers["method"] = "GET"
-
                     if (API.key !== "") {
-                        headers["Authentication"] = `Bearer ${API.key}`
+                        headers["Authorization"] = `Bearer ${API.key}`
                     }
 
-                    const response = await fetch(url, headers)
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers
+                    })
 
                     const result = await response.json()
 
@@ -59,7 +62,7 @@ const HomeScreen = ({ setCurrentScreen, models, setModels, selectedModel, setSel
     }, [])
 
     return (
-        <>
+        <div className="home-screen">
             <h1>Vyber model</h1>
             <select
                 value={selectedModel}
@@ -69,14 +72,19 @@ const HomeScreen = ({ setCurrentScreen, models, setModels, selectedModel, setSel
                     <option value={model}>{`${model} (${models[model].url})`}</option>
                 ))}
             </select>
+            <br />
             <button
                 onClick={() => setCurrentScreen("solution")}
             >Získat řešení</button>
             <br />
             <button
+                onClick={() => setCurrentScreen("notes")}
+            >Zápisky</button>
+            <br />
+            <button
                 onClick={() => setCurrentScreen("settings")}
             >Nastavení</button>
-        </>
+        </div>
     )
 }
 
